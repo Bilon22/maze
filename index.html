@@ -1,0 +1,383 @@
+<html>
+    <head>
+        <title>MAZE</title>
+        <link rel="Stylesheet" type="text/css" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Audiowide|Roboto:400,700" rel="stylesheet">
+    </head>
+    <body onkeydown=menuPress(event.keyCode)>
+        <div id="one" class="game">
+            <div id="logo">
+                Maze
+                <p> Use arrow keys to navigate. Press 'Z' to choose option and "X" to back.</p>
+            </div>
+            <div id="start" class="button">START</div>
+            <div id="author" class="button"> ABOUT</div>
+            <div id="top" class="button"> RANKING</div>
+            <div id="exit" class="button"> EXIT</div>
+        </div>
+        <div id="two" class="game">
+            <div id="mazeWindow"><div id="maze"></div></div>
+       
+            <div id='results'>
+                Score: <p class='points'> 2048 </p>
+                Best: <p class='best'> XXXX </p>
+                Coord: <p class='coordinate'> X:Y </p>
+            </div>
+        </div>
+        <div id="three" class="game">
+           
+        Game made by Dawid Cichon.
+        <br/>
+        <br/>
+        GitHub:
+        </div>
+        <div id="four" class="game">
+            
+        </div>
+        <script>
+            /*ONE*/
+            let position=0;
+            let menu=[start,author,top,exit];
+            let button=document.getElementsByClassName("button");
+            let where=5;
+            /*TWO*/
+            let mapPosition= [-2290,-2290];
+            let playerPosition= [2500,2500];
+            let map=[];
+            let pointsHowMuch=2048;
+            
+            if(localStorage.bestScore===undefined){
+                localStorage.setItem("bestScore",0);
+            } 
+            document.getElementsByClassName("best")[0].innerHTML=localStorage.getItem("bestScore");
+            document.getElementById("four").innerHTML="<br/><br/>Best score: <br/>"+localStorage.getItem("bestScore");
+            
+            function menuPress(x){
+                /*MENU CONTROL*/
+                if(where==5){
+                    if(x==40)position++;
+                    if(x==38)position--;
+                    if(x==90){
+                        document.getElementById("one").style.display="none";
+                        if(position==0){
+                            document.getElementById("two").style.display="block";
+                            mapGenerator();
+                        }
+                        if(position==1){
+                            document.getElementById("three").style.display="block";
+                        }
+                        if(position==2){
+                            document.getElementById("four").style.display="block";
+                        }
+                        where=position;
+                    }
+                    if(position==-1)position=3;
+                    if(position==4)position=0;
+                    button[0].style.backgroundColor="white";
+                    button[1].style.backgroundColor="white";
+                    button[2].style.backgroundColor="white";
+                    button[3].style.backgroundColor="white";
+                    button[position].style.backgroundColor="#9B341C";
+                }
+                /*GAME CONTROL*/
+                if(where==0){
+                    playerMove(x);
+                }
+                /*AUTHOR CONTROL*/
+                if(where==1){
+                    if(x==88){
+                        backToMenu()
+                    }
+                }
+                /*TOP CONTROL*/
+                if(where==2){
+                    if(x==88){
+                        backToMenu()
+                    }
+                }
+            }
+            function backToMenu(){
+                        document.getElementById("one").style.display="block";
+                        if(where==0){
+                            document.getElementById("two").style.display="none";
+                        }
+                        if(where==1){
+                            document.getElementById("three").style.display="none";
+                        }
+                        if(where==2){
+                            document.getElementById("four").style.display="none";
+                        }
+                        where=5;
+            }
+            function playerMove(move){
+                if(move==37&&checkMove(0)==true){
+                   mapPosition[0]+=10;
+                    document.getElementById("maze").style.marginLeft=mapPosition[0]+"px";
+                    playerPosition[0]-=10;
+                    document.getElementById("player").style.left = playerPosition[0] + "px";
+                    points();
+                }
+                if(move==38&&checkMove(1)==true){
+                   mapPosition[1]+=10;
+                    document.getElementById("maze").style.marginTop=mapPosition[1]+"px";
+                    playerPosition[1]-=10;
+                    document.getElementById("player").style.top = playerPosition[1] + "px";
+                    points();
+                }
+                if(move==39&&checkMove(2)==true){
+                   mapPosition[0]-=10;
+                    document.getElementById("maze").style.marginLeft=mapPosition[0]+"px";
+                    playerPosition[0]+=10;
+                    document.getElementById("player").style.left = playerPosition[0] + "px";
+                    points();
+                }
+                if(move==40&&checkMove(3)==true){
+                   mapPosition[1]-=10;
+                    document.getElementById("maze").style.marginTop=mapPosition[1]+"px";
+                    playerPosition[1]+=10;
+                    document.getElementById("player").style.top = playerPosition[1] + "px";
+                    points();
+                }
+            }
+            function checkMove(direction){
+ 
+                if(direction==0){
+                    if (map[Math.floor((playerPosition[0]-10) / 100)][Math.floor((playerPosition[1]-10) / 100)] != 0 &&
+                     map[Math.floor((playerPosition[0]-10) / 100)][Math.floor((playerPosition[1] + 50-10) / 100)] != 0) {
+                        winCheck();
+                       
+                   return true;
+                    }
+                }
+                if(direction==1){
+                    if (map[Math.floor((playerPosition[0]-10) / 100)][Math.floor((playerPosition[1]-10) / 100)] != 0 &&
+                     map[Math.floor((playerPosition[0] + 50-10) / 100)][Math.floor((playerPosition[1]-10) / 100)] != 0) {
+                        winCheck();
+                       
+                   return true;
+                    }
+                }
+                if(direction==2){
+                    if (map[Math.floor((playerPosition[0] + 50) / 100)][Math.floor((playerPosition[1]) / 100)] != 0 &&
+                     map[Math.floor((playerPosition[0] + 50) / 100)][Math.floor((playerPosition[1] + 50) / 100)] != 0) {
+                        winCheck();
+                       
+                   return true;
+                    }
+                }
+                if(direction==3){
+                    if (map[Math.floor((playerPosition[0]) / 100)][Math.floor((playerPosition[1] + 50) / 100)] != 0 &&
+                     map[Math.floor((playerPosition[0] + 50) / 100)][Math.floor((playerPosition[1] + 50) / 100)] != 0) {
+                        winCheck();
+                       
+                   return true;
+               
+                    }
+                }
+            }
+            function winCheck() {
+                if (map[Math.floor(playerPosition[0] / 100)][Math.floor(playerPosition[1] / 100)] == 2) {
+                    if(pointsHowMuch>localStorage.getItem("bestScore")){
+                        localStorage.bestScore=pointsHowMuch;
+                    }
+                    document.getElementById("four").innerHTML="<br/><br/>Best score: <br/>"+localStorage.getItem("bestScore");
+                    document.getElementById("four").style.display="block";
+                    document.getElementById("two").style.display="none";
+                    where=2;
+                }
+            }
+            function mapGenerator(){
+                let x=0;
+                let y=0;
+                let divCode="<div class=\"wall\"></div>";
+                for(x;x<50;x++){
+                   map[x]=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+               }
+                reset();
+               /*GENERATING*/
+               map[24][24]=1;
+               map[24][25]=1;
+               map[24][26]=1;
+               map[25][24]=1;
+               map[25][25]=1;
+               map[25][26]=1;
+               map[26][24]=1;
+               map[26][25]=1;
+               map[26][26]=1;
+               map[23][25]=1;
+               map[27][25]=1;
+               map[25][23]=1;
+               map[25][27]=1;
+               map[22][25]=1;
+               map[28][25]=1;
+               map[25][22]=1;
+               map[25][28]=1;
+               
+               x=3;
+               y=3;
+               for(x;x<48;x++){
+                   if(x%2==1&&y%2==1){
+                       map[x][y]=1;
+                   }
+                   if(x==47&&y<47){
+                       x=3;
+                       y++;
+                   }
+               }
+               for(howMuch=10;howMuch>0;howMuch--){
+                    x=3;
+                    y=3;
+                    for(x;x<48;x++){
+                       if(map[x][y]==1&&map[x-1][y]+map[x+1][y]+map[x][y-1]+map[x][y+1]==1){
+                           rand(x,y);
+                       }
+                       if(x==47&&y<47){
+                           x=3;
+                           y++;
+                       }
+                   }
+               }
+                   x=3;
+                   y=3;
+                   for(x;x<48;x++){
+                       if(map[x][y]==1&&map[x-1][y]+map[x+1][y]+map[x][y-1]+map[x][y+1]==0){
+                           rand(x,y);
+                       }
+                       if(x==47&&y<47){
+                           x=3;
+                           y++;
+                       }
+                   }
+                                  x=3;
+                   y=3;
+                   for(x;x<48;x++){
+                       if(map[x][y]==1&&map[x-1][y]+map[x+1][y]+map[x][y-1]+map[x][y+1]==1){
+                           rand(x,y);
+                       }
+                       if(x==47&&y<47){
+                           x=3;
+                           y++;
+                       }
+                   }
+               map[24][24]=1;
+               map[24][25]=1;
+               map[24][26]=1;
+               map[25][24]=1;
+               map[25][25]=1;
+               map[25][26]=1;
+               map[26][24]=1;
+               map[26][25]=1;
+               map[26][26]=1;
+               map[23][25]=1;
+               map[27][25]=1;
+               map[25][23]=1;
+               map[25][27]=1;
+               map[22][25]=1;
+               map[28][25]=1;
+               map[25][22]=1;
+               map[25][28]=1;
+               
+                   x=3;
+                   y=3
+               
+                   for(x;x<48;x++){
+                       if(map[x][y]==0&&map[x-1][y]+map[x+1][y]+map[x][y-1]+map[x][y+1]==4){
+                           
+                           let number=Math.floor((Math.random()*10)%4);
+                           
+                           
+                           if(number==0){
+                               map[x-1][y]=0;
+                           }
+                           if(number==1){
+                               map[x+1][y]=0;
+                           }
+                           if(number==2){
+                               map[x][y-1]=0;
+                           }
+                           if(number==3){
+                               map[x][y+1]=0;
+                           }
+                           
+                           
+                       }
+                       if(x==47&&y<47){
+                           x=3;
+                           y++;
+                       }
+                   }
+                /*META POINTS RANDOMING*/
+                   let mapX = Math.floor(Math.random() * 50);;
+                   let mapY = Math.floor(Math.random() * 50);;
+                   for (mapX; map[mapX][mapY] == 0;) {
+                       mapX = Math.floor(Math.random() * 50);
+                       mapY = Math.floor(Math.random() * 50);
+                       console.log(mapX, mapY);
+                   }
+                   map[mapX][mapY] = 2;
+                   console.log(mapX, mapY);
+                   let coordinate= document.getElementsByClassName("coordinate");
+                    coordinate[0].innerHTML = "X="+mapX+"<br/>"+"Y="+mapY;
+               /*SENDING TO HTML*/
+               y=0;
+               x=1;
+               for(x;x<50;x++){
+                   if(map[x][y]==0){
+                       divCode+="<div class=\"wall\"></div>";
+                    }
+                    if(map[x][y]==1){
+                        divCode+="<div class=\"path\"></div>";
+                    }
+                    if (map[x][y] == 2) {
+                        divCode += "<div class=\"meta\"></div>";
+                    }
+                    if(x==49&&y<49){
+                       x=-1;
+                        y++;
+                    }
+                }
+                divCode+= "<div id=\"player\"></div>";
+                document.getElementById("maze").innerHTML=divCode;
+            }
+            function rand(x,y){
+                let near=[0,0,0,0];
+                if(near[0]==0){
+                    near[0]=Math.floor((Math.random()*10)%2);
+                }
+                if(near[1]==0){
+                    near[1]=Math.floor((Math.random()*10)%2);
+                }
+                if(near[2]==0){
+                    near[2]=Math.floor((Math.random()*10)%2);
+                }
+                if(near[3]==0){
+                    near[3]=Math.floor((Math.random()*10)%2);
+                }
+                map[x-1][y]=near[0];
+                map[x+1][y]=near[1];
+                map[x][y-1]=near[2];
+                map[x][y+1]=near[3];
+            }
+            function reset(){
+                mapPosition= [-2290,-2290];
+                playerPosition= [2500,2500];
+                document.getElementById("maze").style.marginTop="-2290";
+                document.getElementById("maze").style.marginLeft="-2290";
+                document.getElementsByClassName("points")[0].innerHTML=2048;
+                pointsHowMuch=2048;
+                document.getElementsByClassName("best")[0].innerHTML=localStorage.getItem("bestScore");
+            }
+            function points() {
+                let points= document.getElementsByClassName("points");
+                points[0].innerHTML = pointsHowMuch;
+                pointsHowMuch--;
+                if(pointsHowMuch<1){
+                    document.getElementById("one").style.display="block";
+                    document.getElementById("two").style.display="none";
+                    where=5;
+                }
+            }
+
+        </script>
+    </body>
+</html>

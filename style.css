@@ -1,0 +1,140 @@
+body {
+    font-family: Roboto, sans-serif;
+}
+
+@font-face {
+    font-family: Audiowide;
+    src: url('https://fonts.googleapis.com/css?family=Audiowide|Roboto');
+}
+
+.game{
+    width: 640;
+    height: 480;
+    background: #010101;
+    border: solid black 5px;
+    text-align: center;
+    color: white;
+}
+
+table{
+    color: white;
+}
+
+/*ONE*/
+#logo{
+    color: white;
+    font-size: 50px;
+    font-family: Audiowide, sans-serif;
+    text-transform: uppercase;
+    text-shadow: 3px 2px 0 #9B341C;
+}
+
+#logo p {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 16px;
+    text-shadow: none;
+}
+
+.button{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-bottom: 1px solid #9B341C; 
+    transition: all 0.1s;
+}
+
+#start{
+    background: #9B341C;
+    margin-top: 40px;
+}
+
+#author{
+    background: white;
+}
+
+#top{
+    background: white;    
+}
+
+#exit{
+    background: white;    
+}
+
+/*TWO*/
+#two{
+    display: none;
+}
+#mazeWindow{
+    width: 480px;
+    height: 480px;
+    background: black;
+    float: left;
+    float: top;
+    overflow: hidden;
+}
+#maze{
+    margin-top:-2290;
+    margin-left:-2290;
+    width: 5000px;
+    height: 5000px;
+    background: yellow;
+}
+#player{
+    width: 50px;
+    height: 50px;
+    left: 2500px;
+    top: 2500px;
+    background: url(img/player.png);
+    position: relative;
+}
+.wall{
+    width: 100px;
+    height: 100px;
+    background: url(img/wall.jpg);
+    float: left;
+}
+.path{
+    width: 100px;
+    height: 100px;
+    background: url(img/floor.jpg);
+    float: left;
+}
+.meta{
+    width: 100px;
+    height: 100px;
+    background: blue;
+    float: left;
+}
+
+/*THREE*/
+#three{
+    display: none;
+    text-align: center;
+    font-size: 36px;
+}
+
+/*FOUR*/
+
+#four{
+    display: none;
+    text-align: center;
+    font-size: 48px;
+}
+
+/* -------- RESULTS --------*/
+
+#results {
+    background: #010101;
+    height: 90%;
+    font-family: Audiowide;
+    font-size: 25px;
+}
+
+#results p {
+    font-family: Roboto;
+}

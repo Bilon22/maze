@@ -1,4 +1,4 @@
-1. Zrezygnowa³em z poprawiania poruszania siê po mapie. Stwierdzi³em, ¿e aktualnie dzia³a to zadawalaj¹co. 
-2. Kody w grze. Nie bêdzie ich poniewa¿ gra jest zbyt niszowa, by cokolwiek w niej ukrywaæ. Tworzenie kodów, by³oby jedynie niepotrzebnym dodatkiem.
-3. Zrezygnowa³em z ustawiania mety na krañcu labiryntu na rzecz ustawiania jej na losowych koordynatach. Wydaje siê to ciekawszym rozwi¹zaniem.
-4. Nie zabezpieczy³em labiryntu przed skrajnie dziwnymi zachowaniami generatora. ¯adne z wielu losowañ nie by³o na tyle dziwne, by psuæ zabawê.
+1. ZrezygnowaÅ‚em z poprawiania poruszania siÄ™ po mapie. StwierdziÅ‚em, Å¼e aktualnie dziaÅ‚a to zadawalajÄ…co. 
+2. Kody w grze. Nie bÄ™dzie ich poniewaÅ¼ gra jest zbyt niszowa, by cokolwiek w niej ukrywaÄ‡. Tworzenie kodÃ³w, byÅ‚oby jedynie niepotrzebnym dodatkiem.
+3. ZrezygnowaÅ‚em z ustawiania mety na kraÅ„cu labiryntu na rzecz ustawiania jej na losowych koordynatach. Wydaje siÄ™ to ciekawszym rozwiÅ¡zaniem.
+4. Nie zabezpieczyÅ‚em labiryntu przed skrajnie dziwnymi zachowaniami generatora. Å»adne z wielu losowaÅ„ nie byÅ‚o na tyle dziwne, by psuÄ‡ zabawÄ™.

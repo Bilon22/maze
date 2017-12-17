@@ -1,0 +1,3 @@
+Gra Maze.
+
+W grze sterujemy kwadratem, który porusza siê w losowo generowanym labiryncie. Program zlicza i zapisuje najlepszy wynik. 

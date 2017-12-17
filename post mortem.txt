@@ -1,4 +1,2 @@
-1. Zrezygnowałem z poprawiania poruszania się po mapie. Stwierdziłem, że aktualnie działa to zadawalająco. 
-2. Kody w grze. Nie będzie ich ponieważ gra jest zbyt niszowa, by cokolwiek w niej ukrywać. Tworzenie kodów, byłoby jedynie niepotrzebnym dodatkiem.
-3. Zrezygnowałem z ustawiania mety na krańcu labiryntu na rzecz ustawiania jej na losowych koordynatach. Wydaje się to ciekawszym rozwišzaniem.
-4. Nie zabezpieczyłem labiryntu przed skrajnie dziwnymi zachowaniami generatora. Żadne z wielu losowań nie było na tyle dziwne, by psuć zabawę.
+﻿1. Mapa może generować się nieprawidłowo w miejscach, które są na jej skraju. Dzieje się tak ponieważ algorytm jest dobry w labiryntach teoretycznie nieskończonych. Zapętlenie się labiryntu mogłoby rozwiązać problem. Problem ten czasami może uniemożliwić przejście gry.
+2. Sterowanie. Ze względu na zaokrąglenia sterowanie nie jest do końca przyjemne. Występują również graficzne błędy, a w skrajnych przypadkach można zablokować postać w ścianie.

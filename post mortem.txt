@@ -1,2 +1,3 @@
 ﻿1. Mapa może generować się nieprawidłowo w miejscach, które są na jej skraju. Dzieje się tak ponieważ algorytm jest dobry w labiryntach teoretycznie nieskończonych. Zapętlenie się labiryntu mogłoby rozwiązać problem. Problem ten czasami może uniemożliwić przejście gry.
 2. Sterowanie. Ze względu na zaokrąglenia sterowanie nie jest do końca przyjemne. Występują również graficzne błędy, a w skrajnych przypadkach można zablokować postać w ścianie.
+3. Generowanie labiryntu. Do generowania labiryntu użyłem automatu komórkowego. Zaczynając od środka labiryntu losowo usuwa ściany działowe między nieaktywnymi jeszcze kontami.

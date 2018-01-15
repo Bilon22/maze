@@ -31,8 +31,8 @@ komórkami. Jeżeli proces się zakończy, a algorytm znajdzie komórki nie poł
 Grafiki pobrałem z internetu. Nie tworzyłem swoich ponieważ nie miało to znaczenia w projekcie.
 
 ![Postać](img/player.png?raw=true "Postać")
-![Ścieżka](img/floor.png?raw=true "Ścieżka")
-![Ściana](img/wall.png?raw=true "Ściana")
+![Ścieżka](img/floor.jpg?raw=true "Ścieżka")
+![Ściana](img/wall.jpg?raw=true "Ściana")
 
 
 ## 5. Elementy blokowe

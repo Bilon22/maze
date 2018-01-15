@@ -53,6 +53,11 @@
             document.getElementById("four").innerHTML="<br/><br/>Best score: <br/>"+localStorage.getItem("bestScore");
             
             function menuPress(x){
+                /*****************************************************************************/
+                /*Funkcja ta sprawdza, który klawisz został wciśnięty i wykonuje przypisaną mu
+                funkcje w zależności od ekranu na, którym znajduje się użytkwonik. 
+                x-klawisz wciśnięty na klawiaturze                                           */
+                /*****************************************************************************/
                 /*MENU CONTROL*/
                 if(where==5){
                     if(x==40)position++;
@@ -97,6 +102,9 @@
                 }
             }
             function backToMenu(){
+                /*****************************************************************************/
+                /*Funkcja ta pozwala cofnąć się do menu ukrywając i pokazując odpowiednie divy*/                                       */
+                /*****************************************************************************/
                         document.getElementById("one").style.display="block";
                         if(where==0){
                             document.getElementById("two").style.display="none";
@@ -110,6 +118,10 @@
                         where=5;
             }
             function playerMove(move){
+                /*****************************************************************************/
+                /*Funkcja pozwala sterować postaciom. 
+                move- numer ASCII wciśniętego klawisza                                       */
+                /*****************************************************************************/
                 if(move==37&&checkMove(0)==true){
                    mapPosition[0]+=10;
                     document.getElementById("maze").style.marginLeft=mapPosition[0]+"px";
@@ -140,7 +152,11 @@
                 }
             }
             function checkMove(direction){
- 
+                /*****************************************************************************/
+                /*Funkcja ta sprawdza czy pole, na które gracz chce się poruszyć jest wolne i
+                czy nie jest metą. 
+                direction-kierunek poruszania(0-lewo, 1-góra, 2-prawo, 3-dół*/
+                /*****************************************************************************/
                 if(direction==0){
                     if (map[Math.floor((playerPosition[0]-10) / 100)][Math.floor((playerPosition[1]-10) / 100)] != 0 &&
                      map[Math.floor((playerPosition[0]-10) / 100)][Math.floor((playerPosition[1] + 50-10) / 100)] != 0) {
@@ -176,6 +192,9 @@
                 }
             }
             function winCheck() {
+                /*****************************************************************************/
+                /*Funkcja sprawdza czy gracz zakończył grę.                                  */
+                /*****************************************************************************/
                 if (map[Math.floor(playerPosition[0] / 100)][Math.floor(playerPosition[1] / 100)] == 2) {
                     if(pointsHowMuch>localStorage.getItem("bestScore")){
                         localStorage.bestScore=pointsHowMuch;
@@ -187,6 +206,9 @@
                 }
             }
             function mapGenerator(){
+                /*****************************************************************************/
+                /*Funkcja generuje mapę                                                      */
+                /*****************************************************************************/
                 let x=0;
                 let y=0;
                 let divCode="<div class=\"wall\"></div>";
@@ -340,6 +362,9 @@
                 document.getElementById("maze").innerHTML=divCode;
             }
             function rand(x,y){
+                /*****************************************************************************/
+                /*Funkcja odnajduje w miarę sensowne miejsce na metę.                        */
+                /*****************************************************************************/
                 let near=[0,0,0,0];
                 if(near[0]==0){
                     near[0]=Math.floor((Math.random()*10)%2);
@@ -359,6 +384,9 @@
                 map[x][y+1]=near[3];
             }
             function reset(){
+                /*****************************************************************************/
+                /*Funkcja przygotowuje grę do nowej sesji.                                   */
+                /*****************************************************************************/
                 mapPosition= [-2290,-2290];
                 playerPosition= [2500,2500];
                 document.getElementById("maze").style.marginTop="-2290";
@@ -368,6 +396,9 @@
                 document.getElementsByClassName("best")[0].innerHTML=localStorage.getItem("bestScore");
             }
             function points() {
+                /*****************************************************************************/
+                /*Funkcja zlicza punkty                                                      */
+                /*****************************************************************************/
                 let points= document.getElementsByClassName("points");
                 points[0].innerHTML = pointsHowMuch;
                 pointsHowMuch--;

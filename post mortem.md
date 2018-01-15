@@ -30,6 +30,11 @@ komórkami. Jeżeli proces się zakończy, a algorytm znajdzie komórki nie poł
 ## 4. Grafika
 Grafiki pobrałem z internetu. Nie tworzyłem swoich ponieważ nie miało to znaczenia w projekcie.
 
+![Postać](img/player.png?raw=true "Postać")
+![Ścieżka](img/floor.png?raw=true "Ścieżka")
+![Ściana](img/wall.png?raw=true "Ściana")
+
+
 ## 5. Elementy blokowe
 Całą grę stworzyłem na elementach blokowych, co było błędem (z perspektywy optymalizacji). Lepszym rozwiązaniem byłoby napisanie gry przy użyciu canvas. Ponadto elementy, których na ekranie nie widać dalej poruszają się po za krawędziom ekranu. Sprawia to, że gra jest niezoptymalizowana.
 

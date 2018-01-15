@@ -1,9 +1,0 @@
-Gra Maze.
-
-W grze sterujemy kwadratem, który porusza siê w losowo generowanym labiryncie. Program zlicza i zapisuje najlepszy wynik. 
-
-Sterowanie:
-
-strza³ki do poruszania siê po menu i przemieszczania siê postaci¹.
-z- zatwierdŸ opcjê
-x- wróæ do menu

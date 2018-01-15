@@ -17,7 +17,7 @@ Ze względu na zaokrąglenia sterowanie nie jest do końca przyjemne. Występuj�
 
 Próbowałem zaokrąglać pozycje w niektórych miejscach w górę ale niestety to wywołało inne błędy, które całkowicie uniemożliwiły mi poruszanie postaciom. Wróciłem do bazowe wersji sterowania i dodałem 10 pikseli w niektórych miejscach. Wygląda to lepiej, ale ostatecznie dalej jest nieidealne.
 
-![Postać zablokowana w ścianie](imgmd1.png Postać zablokowana w ścianie)
+![Postać zablokowana w ścianie](img/md1.png Postać zablokowana w ścianie)
 
 ## 2a.
 Informacje o tym, który klawisz jest wciśnięty pobieram przy użyciu onKeyDown(), które zagnieżdżone jest w tagu body. Był to spory błąd, ponieważ funckja dostaje sprzeczne informacje. Wywołuje to efekt Skakania po ekranie. Dobrym rozwiązaniem byłoby stworzenie funkcji, która pobiera informacje o tym czy klawisz został wciśnięty i sprawdza moment, w którym klawisz został puszczony. Błąd ten uniemożliwia też wciśnięcie dwóch klawiszy na raz, oraz przerywa poruszanie po wciśnięciu dowolnego klawisza.

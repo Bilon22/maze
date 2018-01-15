@@ -2,9 +2,9 @@
 # DAWID CICHOŃ 156408 MAZE
 
 ## Informacje o wymiarach
-Mapa 2500px 2500px
-Gracz 50px 50px
-Komórka 100px 100px
+- Mapa 2500px 2500px
+- Gracz 50px 50px
+- Komórka 100px 100px
 
 
 ## 1. Mapa

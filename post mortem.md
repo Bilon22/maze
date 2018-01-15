@@ -18,7 +18,7 @@ Ze względu na zaokrąglenia sterowanie nie jest do końca przyjemne. Występuj�
 Próbowałem zaokrąglać pozycje w niektórych miejscach w górę ale niestety to wywołało inne błędy, które całkowicie uniemożliwiły mi poruszanie postaciom. Wróciłem do bazowe wersji sterowania i dodałem 10 pikseli w niektórych miejscach. Wygląda to lepiej, ale ostatecznie dalej jest nieidealne.
 
 ![Postać zablokowana w ścianie](img/md1.png?raw=true "Postać zablokowana w ścianie")
-#####Rys.1 Postać zablokowana w ścianie
+##### Rys.1 Postać zablokowana w ścianie
 
 ## 2a.
 Informacje o tym, który klawisz jest wciśnięty pobieram przy użyciu onKeyDown(), które zagnieżdżone jest w tagu body. Był to spory błąd, ponieważ funckja dostaje sprzeczne informacje. Wywołuje to efekt Skakania po ekranie. Dobrym rozwiązaniem byłoby stworzenie funkcji, która pobiera informacje o tym czy klawisz został wciśnięty i sprawdza moment, w którym klawisz został puszczony. Błąd ten uniemożliwia też wciśnięcie dwóch klawiszy na raz, oraz przerywa poruszanie po wciśnięciu dowolnego klawisza.
@@ -29,7 +29,7 @@ Do generowania labiryntu użyłem automatu komórkowego. Zaczynając od środka 
 komórkami. Jeżeli proces się zakończy, a algorytm znajdzie komórki niepołaczone w żaden sposób z innymi komórkami to zaczyna losowo usuwać ściany. Na sam koniec algorytm generuje pustą przestrzeń, na której spawnuje się postać gracza.
 
 ![Błąd generatora](img/md2.png?raw=true "Błąd generatora")
-####Rys.2 Komórka do, której nie ma dostępu/błąd generatora
+#### Rys.2 Komórka do, której nie ma dostępu/błąd generatora
 
 ## 4. Grafika
 Grafiki pobrałem z internetu. Nie tworzyłem swoich ponieważ nie miało to znaczenia w projekcie.
@@ -37,7 +37,7 @@ Grafiki pobrałem z internetu. Nie tworzyłem swoich ponieważ nie miało to zna
 ![Postać](img/player.png?raw=true "Postać")
 ![Ścieżka](img/floor.jpg?raw=true "Ścieżka")
 ![Ściana](img/wall.jpg?raw=true "Ściana")
-####Rys. 3,4,5 Grafiki dostępne w grze.
+#### Rys. 3,4,5 Grafiki dostępne w grze.
 
 ## 5. Elementy blokowe
 Całą grę stworzyłem na elementach blokowych, co było błędem (z perspektywy optymalizacji). Lepszym rozwiązaniem byłoby napisanie gry przy użyciu canvas. Ponadto elementy, których na ekranie nie widać dalej poruszają się po za krawędziom ekranu. Sprawia to, że gra jest niezoptymalizowana.

@@ -44,6 +44,7 @@ Całą grę stworzyłem na elementach blokowych, co było błędem (z perspektyw
 
 ## 6. IE
 Internet explorer nie daje sobie rady z grą. Dzieje się tak ponieważ nie dopisałem odpowiednich prefixów w CSS.
+![Błąd w IE](img/md3.png?raw=true "Błąd w IE")
 
 ## 7. Zapisywanie
 Zapisywanie gry odbywa się przy użyciu local.storage. Uważam, że jest to całkiem dobre rozwiązanie, ale ma swoje wady. Największą wadą jest fakt, że wynik znajduje się tylko na jednym komputerze i nie przesyła się na serwer. Rekordy uzyskane w grze są unikalne dla każdego komputera. Dobrym rozwiązaniem byłoby skorzystanie z bazy danych MySQL.
